@@ -1,0 +1,35 @@
+ID: MyFirstMTAProject
+_schema-version: '2.1'
+version: 0.0.1
+modules:
+  - name: database
+    type: hdb
+    path: database
+    requires:
+      - name: hdi_database
+
+  
+
+
+  
+
+
+  
+
+
+  - name: apps
+    type: nodejs
+    path: apps
+    provides:
+     - name: apps_api
+       properties:
+          url: ${default-url}
+
+resources:
+  - name: hdi_database
+    parameters:
+      config:
+        schema: HELLOXX_XSA
+    properties:
+      hdi-container-name_3: '${service-name}'
+    type: com.sap.xs.hdi-container

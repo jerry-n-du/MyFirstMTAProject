@@ -1,0 +1,15 @@
+namespace MyFirstMTAProject.database;
+
+context cdsArtifact {
+
+    /*@@layout{"layoutInfo":{"x":-580,"y":-340.5}}*/
+    entity world {
+        key continent : String(100) not null;
+    };
+
+    /*@@layout{"layoutInfo":{"x":-324,"y":-258.5}}*/
+    entity country {
+        name   : String(100);
+        partof : association[1, 0..1] to cdsArtifact.world { continent };
+    };
+};
